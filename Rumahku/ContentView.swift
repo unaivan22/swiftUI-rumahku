@@ -13,26 +13,29 @@ struct ContentView: View {
             TabView {
                 Home()
                     .tabItem {
-                        Image(systemName: "house.fill")
+                        Image(systemName: "house")
+                            .environment(\.symbolVariants, .none)
                         Text("Home")
                     }
                 
                 Home()
                     .tabItem {
-                        Image(systemName: "magnifyingglass")
-                        Text("Search")
-                    }
-                
-                Home()
-                    .tabItem {
-                        Image(systemName: "clock.fill")
+                        Image(systemName: "clock")
+                            .environment(\.symbolVariants, .none)
                         Text("History")
                     }
                 
                 Home()
                     .tabItem {
-                        Image(systemName: "bookmark.fill")
+                        Image(systemName: "bookmark")
+                            .environment(\.symbolVariants, .none)
                         Text("Saved")
+                    }
+                Home()
+                    .tabItem {
+                        Image(systemName: "person")
+                            .environment(\.symbolVariants, .none)
+                        Text("Profile")
                     }
             }
             .accentColor(.black)
@@ -51,18 +54,28 @@ struct Home : View {
 
         NavigationView{
             Kontent()
-                .navigationBarItems(
-                    leading:
-                        HStack{
-                            Button(action: {print("Hello Button")}){
-                                Image("rumahku")
-                                    .renderingMode(.original)
-                                    .resizable()
-                                    .frame(width: 120, height:30)
-                            }
-                        },
-                    trailing:
-                        HStack(spacing:10){
+//                .navigationBarItems(
+//                    leading: HStack{
+//                        TextField("Search ...", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+//                            .padding(.vertical, 7)
+//                            .padding(.horizontal, 12)
+//                            .background(Color(.systemGray6))
+//                            .cornerRadius(12)
+//                            .padding(.bottom, 24)
+//                            .frame(maxWidth: .infinity)
+//
+//                    }
+//                    leading:
+//                        HStack{
+//                            Button(action: {print("Hello Button")}){
+//                                Image("rumahku")
+//                                    .renderingMode(.original)
+//                                    .resizable()
+//                                    .frame(width: 120, height:30)
+//                            }
+//                        },
+//                    trailing:
+//                        HStack(spacing:10){
 //                            Button(action: {print("Hello Print")}){
 //                                Image(systemName: "tray.full")
 //                                    .foregroundColor(Color.secondary)
@@ -77,18 +90,53 @@ struct Home : View {
 //                                Image(systemName: "magnifyingglass")
 //                                    .foregroundColor(Color.secondary)
 //                            }
-                            
-                            Button(action: {print("Hello Print")}){
-                                Image("profile")
-                                    .renderingMode(.original)
-                                    .resizable()
-                                    .frame(width:30, height:30)
-                                    .clipShape(Circle())
-                            }
+//
+//                            Button(action: {print("Hello Print")}){
+//                                Image("profile")
+//                                    .renderingMode(.original)
+//                                    .resizable()
+//                                    .frame(width:30, height:30)
+//                                    .clipShape(Circle())
+//                            }
+//                        }
+//                )
+//                .navigationBarTitle("", displayMode: .inline)
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        
+                        Text("Asc")
+                            .foregroundColor(.black)
+                    }
+                    
+                    ToolbarItem(placement: .principal) {
+                        
+                        TextField("Search ...", text: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/.constant("")/*@END_MENU_TOKEN@*/)
+                            .padding(.vertical, 10)
+                            .padding(.horizontal, 12)
+                            .background(Color(.systemGray6))
+                            .cornerRadius(12)
+                            .padding(.horizontal, 8)
+                            .padding(.top, 24)
+                            .padding(.bottom, 24)
+                            .frame(maxWidth: .infinity)
+                    }
+                    
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        HStack(spacing: 2){
+                            Image(systemName: "arrow.up.arrow.down")
+                                .foregroundColor(.black)
+                                .font(.system(size: 14))
+//                            Text("Sort")
+//                                .foregroundColor(.blue)
+
                         }
-                )
-                .navigationBarTitle("", displayMode: .inline)
-        }.navigationViewStyle(StackNavigationViewStyle())
+                    }
+                    
+                    
+                }
+        }.padding(.horizontal, 12)
     }
 }
 
@@ -98,56 +146,53 @@ struct Kontent : View {
     
     var body : some View {
         VStack(alignment: .leading){
-            HStack{
-                Text("Nearby")
-                    .font(.system(size: 20))
+            HStack(alignment: .center){
+                Image(systemName: "location.circle.fill")
+                .foregroundColor(Color.orange)
+                
+                Text("Sukolilo, Madiun, East Java")
+                    .font(.system(size: 14))
                     .foregroundColor(.gray)
-                    .bold()
-            }.padding(EdgeInsets(top: 10, leading: 18, bottom: 10, trailing: 18))
+            }
+            .padding(EdgeInsets(top: 0, leading: 18, bottom: 10, trailing: 18))
+            .frame(maxWidth: .infinity)
             
             List(viewModel.rumahs) { rumah in
                 NavigationLink(destination: DetailView(rumah: rumah)) {
-                    HStack(spacing: 15){
+                    VStack(spacing: 10){
                         URLImage(urlString: rumah.thumbnail)
-                            .frame(width: 100, height: 100)
-                            .aspectRatio(contentMode: .fill)
-                            .cornerRadius(8)
+//                            .frame(width: 100, height: 100)
+//                            .aspectRatio(contentMode: .fill)
+//                            .cornerRadius(8)
+                            .scaledToFill()
+                            .frame(width: UIScreen.main.bounds.width - 40,  height: 350)
+                            .clipped()
+                            .cornerRadius(12)
                         
-                        VStack(alignment: .leading, spacing: 10){
+                        VStack(alignment: .leading, spacing: 6){
                             Text(rumah.title)
-                                .font(.system(size: 22))
+                                .font(.system(size: 24))
                                 .foregroundColor(.black)
-                            
+                                .bold()
+                                .multilineTextAlignment(.leading)
                             Text("Rp \(rumah.price)")
-                                .font(.system(size: 18))
-                                .foregroundColor(.blue)
+                                .font(.system(size: 20))
+                                .foregroundColor(.secondary)
+                                .multilineTextAlignment(.leading)
                             
-                            HStack{
-                                Group{
-                                    Image(systemName: "bed.double.fill")
-                                        .foregroundColor(.gray)
-                                        .font(.system(size: 12))
-                                    Text("\(rumah.bedroom)").foregroundColor(.gray)
-                                        .font(.system(size: 12))
-                                }
-                                Group{
-                                    Image(systemName: "arrow.up.left.and.down.right.and.arrow.up.right.and.down.left")
-                                        .foregroundColor(.gray)
-                                        .font(.system(size: 12))
-                                    Text("\(rumah.long * rumah.wide)").foregroundColor(.gray)
-                                        .font(.system(size: 12))
-                                }
-                            }
-                        }
-                    }
+                            HStack(){
+                                ///untukk set width
+                            }.frame(width: UIScreen.main.bounds.width - 40)
+                        }.frame(width: UIScreen.main.bounds.width)
+                    }.padding(.bottom, 20)
+                    .padding(.leading, 20)
                 }.listRowSeparator(.hidden)
-            }.listStyle(.plain)
+            }.listStyle(.inset)
             //                    .navigationBarTitle("Rumah Pilihan")
-                .onAppear {
-                    viewModel.fetchRumahs()
-                }
+            .onAppear {
+                viewModel.fetchRumahs()
+            }
             //        .background(Color.red.edgesIgnoringSafeArea(.all))
-                .listStyle(.plain)
             //        .listStyle(.inset)
             //        .listStyle(.insetGrouped)
             
@@ -222,61 +267,68 @@ struct DetailView: View {
     let rumah: Rumah
     
     var body: some View {
-        ZStack(alignment: .topTrailing){
+//        ZStack(alignment: .topTrailing){
+        ScrollView {
             VStack(alignment: .leading, spacing: 20) {
                 
                 URLImage(urlString: rumah.thumbnail)
-    //                .resizable()
+                //                .resizable()
                     .scaledToFill()
-                    .frame(width: UIScreen.main.bounds.width - 40,  height: 200)
+                    .frame(width: UIScreen.main.bounds.width - 40,  height: 350)
                     .clipped()
-                    .cornerRadius(8)
+                    .cornerRadius(20)
                 
-                VStack(alignment: .leading, spacing: 10){
+                VStack(alignment: .leading, spacing: 2){
                     Text(rumah.title)
-                        .font(.largeTitle)
+                        .font(.system(size: 30))
+                        .bold()
                     
                     Text("Rp: \(rumah.price)")
                         .font(.system(size: 22))
-                        .foregroundColor(.blue)
+                        .foregroundColor(.black)
                         .bold()
+                        .padding(.bottom, 6)
                     
                     HStack{
-                        Text(rumah.kecamatan)
+                        Image(systemName: "location.circle.fill")
+                            .foregroundColor(Color.orange)
+                        
+                        Text("\(rumah.kecamatan),".capitalized)
                             .foregroundColor(Color.gray)
                             .font(.system(size: 16))
-                        Text(rumah.kota)
+                        
+                        Text(rumah.kota.capitalized)
                             .foregroundColor(Color.gray)
                             .font(.system(size: 16))
                     }
-                }
+                }.padding(.bottom, 1)
                 
-                HStack{
-                    Group{
+                HStack(spacing: 16){
+                    HStack(spacing: 6){
                         Image(systemName: "bed.double.fill")
                             .foregroundColor(.gray)
-                            .font(.system(size: 12))
+                            .font(.system(size: 16))
                         Text("\(rumah.bedroom)")
-                            .font(.system(size: 12))
+                            .font(.system(size: 16))
                     }
-                    Group{
-                        Image(systemName: "arrow.up.left.and.down.right.and.arrow.up.right.and.down.left")
+                    HStack(spacing: 6){
+                        Image(systemName: "arrow.up.left.and.arrow.down.right")
                             .foregroundColor(.gray)
-                            .font(.system(size: 12))
-                        Text("\(rumah.long * rumah.wide)")
-                            .font(.system(size: 12))
+                            .font(.system(size: 14))
+                        Text("\(rumah.long * rumah.wide) m²")
+                            .font(.system(size: 16))
                     }
-                    HStack{
+                    HStack(spacing: 6){
                         Image(systemName: "drop.fill")
                             .foregroundColor(.gray)
-                            .font(.system(size: 12))
+                            .font(.system(size: 14))
                         Text("\(rumah.bathroom)")
-                            .font(.system(size: 12))
+                            .font(.system(size: 16))
                     }
                     
-                }
+                }.padding(.bottom, 10)
                 
-                HStack(spacing: 15 ){
+                HStack(spacing: 12) {
                     URLImage(urlString: rumah.photoseller)
                         .frame(width: 50, height: 50)
                         .aspectRatio(contentMode: .fit)
@@ -286,23 +338,36 @@ struct DetailView: View {
                         Text("Penjual")
                             .font(.system(size: 14))
                             .foregroundColor(.gray)
-                         Text(rumah.seller)
+                        Text(rumah.seller)
                             .font(.system(size: 18))
                             .foregroundColor(.black)
                         
                     }
+                    Spacer()
+                    Spacer()
+                    Spacer()
+                    Spacer()
                     Image(systemName: "message.fill")
-                        .foregroundColor(.blue)
+                        .foregroundColor(.black)
                         .font(.system(size: 22))
-                }
-   
+                            Spacer()
+                }.padding()
+                    .background(.white)
+                    .cornerRadius(20) /// make the background rounded
+                    .overlay( /// apply a rounded border
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(.secondary, lineWidth: 1)
+                    )
+                
                 Text(rumah.description)
                     .font(.body)
                     .font(.system(size: 16))
-                    .foregroundColor(.black)
+                    .foregroundColor(.secondary)
                 
                 
             }.padding(.horizontal,24)
+                .frame(width: UIScreen.main.bounds.width)
         }
+//        }
     }
 }
