@@ -1,12 +1,77 @@
 //
-//  DetailView.swift
+//  Search.swift
 //  Rumahku
 //
-//  Created by una ivan on 17/06/23.
+//  Created by una ivan on 19/06/23.
 //
 
 import SwiftUI
-struct DetailView: View {
+
+struct HistoryDetail : View {
+    @StateObject private var viewModel = RumahViewModel()
+    
+    var body : some View {
+        
+        
+            NavigationView{
+                History()
+            }
+        
+        
+        
+    }
+}
+
+
+struct History : View {
+    @StateObject private var viewModel = RumahViewModel()
+
+    
+    var body : some View {
+        
+        
+        
+        List(viewModel.rumahs.filter { $0.recentview }) { rumah in
+            NavigationLink(destination: HistoryDetailView(rumah: rumah)) {
+                HStack(spacing: 10){
+                    URLImage(urlString: rumah.thumbnail)
+                        .scaledToFill()
+                        .frame(width: 60, height: 60)
+                        .clipped()
+                        .cornerRadius(12)
+                        .aspectRatio(contentMode: .fill)
+                    
+                    VStack(alignment: .leading, spacing: 1){
+                        Text(rumah.title)
+                            .font(.system(size: 18))
+                            .foregroundColor(.black)
+                            .bold()
+                            .multilineTextAlignment(.leading)
+                        HStack(spacing: 4){
+                            Text("\(rumah.kecamatan),".capitalized)
+                                .foregroundColor(Color.gray)
+                                .font(.system(size: 16))
+                            
+                            Text(rumah.kota.capitalized)
+                                .foregroundColor(Color.gray)
+                                .font(.system(size: 16))
+                        }
+                        
+                    }
+                }
+            }.listRowSeparator(.hidden)
+        }.listStyle(.inset)
+            .navigationBarTitle("Search History")
+            .onAppear {
+                viewModel.fetchRumahs()
+            }
+            .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+
+struct HistoryDetailView: View {
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     let rumah: Rumah
     
     var body: some View {
@@ -110,6 +175,9 @@ struct DetailView: View {
                 
             }.padding(.horizontal,24)
                 .frame(width: UIScreen.main.bounds.width)
+//                .navigationBarTitle("")
+//                        .navigationBarBackButtonHidden(true)
+//                        .navigationBarHidden(true)
         }
         //        }
     }

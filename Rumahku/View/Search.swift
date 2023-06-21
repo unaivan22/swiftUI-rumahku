@@ -1,12 +1,100 @@
-//
-//  DetailView.swift
-//  Rumahku
-//
-//  Created by una ivan on 17/06/23.
-//
 
 import SwiftUI
-struct DetailView: View {
+
+struct SearchDetail: View {
+    
+    var body: some View {
+        NavigationView {
+            SearchFinal()
+        }
+    }
+}
+
+
+struct SearchFinal: View {
+    @Environment(\.presentationMode) var presentationMode
+    
+    @StateObject private var viewModel = RumahViewModel()
+    @State private var searchText = ""
+    @State private var isSearching = false
+    
+    var filteredRumahs: [Rumah] {
+        viewModel.rumahs.filter { searchText.isEmpty || $0.title.contains(searchText) }
+    }
+    
+    var body: some View {
+        //        NavigationView {
+        VStack {
+            TextField("Type your dream residence", text: $searchText, onCommit: {
+                isSearching = true
+                viewModel.fetchRumahs()
+            })
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+            .frame(height: 48)
+           .padding(EdgeInsets(top: 6, leading: 6, bottom: 6, trailing: 6))
+           .cornerRadius(5)
+           .padding(.horizontal,12)
+            
+            if isSearching && filteredRumahs.isEmpty {
+                Text("House not found")
+                    .foregroundColor(.gray) 
+                    .padding()
+            } else {
+                List(filteredRumahs) { rumah in
+                    NavigationLink(destination: DetailViewSearch(rumah: rumah)) {
+                        HStack(spacing: 10){
+                            URLImage(urlString: rumah.thumbnail)
+                                .scaledToFill()
+                                .frame(width: 60, height: 60)
+                                .clipped()
+                                .cornerRadius(12)
+                                .aspectRatio(contentMode: .fill)
+                            
+                            VStack(alignment: .leading, spacing: 1){
+                                Text(rumah.title)
+                                    .font(.system(size: 18))
+                                    .foregroundColor(.black)
+                                    .bold()
+                                    .multilineTextAlignment(.leading)
+                                HStack(spacing: 4){
+                                    Text("\(rumah.kecamatan),".capitalized)
+                                        .foregroundColor(Color.gray)
+                                        .font(.system(size: 16))
+                                    
+                                    Text(rumah.kota.capitalized)
+                                        .foregroundColor(Color.gray)
+                                        .font(.system(size: 16))
+                                }
+                                
+                            }
+                        }
+                    }.listRowSeparator(.hidden)
+                }.listStyle(.plain)
+            }
+        }
+        //            .navigationBarHidden(true)
+        .navigationTitle("Search")
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    presentationMode.wrappedValue.dismiss()
+                }) {
+                    Image(systemName: "xmark")
+                        .foregroundColor(.gray)
+                }
+            }
+        }
+        Spacer()
+            .onAppear {
+                viewModel.fetchRumahs()
+            }
+        //        }
+        
+    }
+}
+
+struct DetailViewSearch: View {
+    @Environment(\.presentationMode) var presentationMode
     let rumah: Rumah
     
     var body: some View {
@@ -109,8 +197,19 @@ struct DetailView: View {
                 
                 
             }.padding(.horizontal,24)
-                .frame(width: UIScreen.main.bounds.width)
+                .padding(.vertical,24)
+                .frame(maxHeight: .infinity)
+                .navigationBarHidden(false)
+                .navigationBarTitleDisplayMode(.inline)
+//                .toolbar {
+//                    ToolbarItem(placement: .navigationBarLeading) {
+//                        Button(action: {
+//                            presentationMode.wrappedValue.dismiss()
+//                        }) {
+//                            Image(systemName: "xmark")
+//                        }
+//                    }
+//                }
         }
-        //        }
     }
 }

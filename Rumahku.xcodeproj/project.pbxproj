@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A378F73D2A4144BB00D510D4 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = A378F73C2A4144BB00D510D4 /* History.swift */; };
+		A378F73F2A4145F000D510D4 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A378F73E2A4145F000D510D4 /* Profile.swift */; };
 		A3D440032A3D4F880061493B /* RumahkuApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D440022A3D4F880061493B /* RumahkuApp.swift */; };
 		A3D440052A3D4F880061493B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D440042A3D4F880061493B /* ContentView.swift */; };
 		A3D440072A3D4F8D0061493B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3D440062A3D4F8D0061493B /* Assets.xcassets */; };
@@ -14,9 +16,20 @@
 		A3D440142A3D4FCC0061493B /* Api Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D440132A3D4FCC0061493B /* Api Services.swift */; };
 		A3D440162A3D4FF30061493B /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D440152A3D4FF20061493B /* DetailView.swift */; };
 		A3D440182A3D50130061493B /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D440172A3D50130061493B /* DataModel.swift */; };
+		A3E3DA1F2A40197300D088E1 /* Manrope-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3E3DA182A40197100D088E1 /* Manrope-Light.ttf */; };
+		A3E3DA202A40197300D088E1 /* Manrope-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3E3DA192A40197200D088E1 /* Manrope-ExtraBold.ttf */; };
+		A3E3DA212A40197300D088E1 /* Manrope-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3E3DA1A2A40197200D088E1 /* Manrope-SemiBold.ttf */; };
+		A3E3DA222A40197300D088E1 /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3E3DA1B2A40197200D088E1 /* Manrope-Bold.ttf */; };
+		A3E3DA232A40197300D088E1 /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3E3DA1C2A40197200D088E1 /* Manrope-Medium.ttf */; };
+		A3E3DA242A40197300D088E1 /* Manrope-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3E3DA1D2A40197300D088E1 /* Manrope-ExtraLight.ttf */; };
+		A3E3DA252A40197300D088E1 /* Manrope-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A3E3DA1E2A40197300D088E1 /* Manrope-Regular.ttf */; };
+		A3E3DA292A402B8B00D088E1 /* Saved.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E3DA282A402B8B00D088E1 /* Saved.swift */; };
+		A3E3DA2B2A405EEE00D088E1 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E3DA2A2A405EEE00D088E1 /* Search.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A378F73C2A4144BB00D510D4 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		A378F73E2A4145F000D510D4 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		A3D43FFF2A3D4F880061493B /* Rumahku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rumahku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3D440022A3D4F880061493B /* RumahkuApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RumahkuApp.swift; sourceTree = "<group>"; };
 		A3D440042A3D4F880061493B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -25,6 +38,16 @@
 		A3D440132A3D4FCC0061493B /* Api Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Api Services.swift"; sourceTree = "<group>"; };
 		A3D440152A3D4FF20061493B /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		A3D440172A3D50130061493B /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		A3E3DA182A40197100D088E1 /* Manrope-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Light.ttf"; sourceTree = "<group>"; };
+		A3E3DA192A40197200D088E1 /* Manrope-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-ExtraBold.ttf"; sourceTree = "<group>"; };
+		A3E3DA1A2A40197200D088E1 /* Manrope-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-SemiBold.ttf"; sourceTree = "<group>"; };
+		A3E3DA1B2A40197200D088E1 /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Bold.ttf"; sourceTree = "<group>"; };
+		A3E3DA1C2A40197200D088E1 /* Manrope-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Medium.ttf"; sourceTree = "<group>"; };
+		A3E3DA1D2A40197300D088E1 /* Manrope-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-ExtraLight.ttf"; sourceTree = "<group>"; };
+		A3E3DA1E2A40197300D088E1 /* Manrope-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Regular.ttf"; sourceTree = "<group>"; };
+		A3E3DA262A4019C700D088E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A3E3DA282A402B8B00D088E1 /* Saved.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Saved.swift; sourceTree = "<group>"; };
+		A3E3DA2A2A405EEE00D088E1 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +80,8 @@
 		A3D440012A3D4F880061493B /* Rumahku */ = {
 			isa = PBXGroup;
 			children = (
+				A3E3DA272A401E2300D088E1 /* Font */,
+				A3E3DA262A4019C700D088E1 /* Info.plist */,
 				A3D440122A3D4FAB0061493B /* Web Service */,
 				A3D440112A3D4FA20061493B /* View */,
 				A3D440102A3D4F9B0061493B /* Model */,
@@ -88,6 +113,10 @@
 			isa = PBXGroup;
 			children = (
 				A3D440152A3D4FF20061493B /* DetailView.swift */,
+				A3E3DA282A402B8B00D088E1 /* Saved.swift */,
+				A3E3DA2A2A405EEE00D088E1 /* Search.swift */,
+				A378F73C2A4144BB00D510D4 /* History.swift */,
+				A378F73E2A4145F000D510D4 /* Profile.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -98,6 +127,20 @@
 				A3D440132A3D4FCC0061493B /* Api Services.swift */,
 			);
 			path = "Web Service";
+			sourceTree = "<group>";
+		};
+		A3E3DA272A401E2300D088E1 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				A3E3DA1B2A40197200D088E1 /* Manrope-Bold.ttf */,
+				A3E3DA192A40197200D088E1 /* Manrope-ExtraBold.ttf */,
+				A3E3DA1D2A40197300D088E1 /* Manrope-ExtraLight.ttf */,
+				A3E3DA182A40197100D088E1 /* Manrope-Light.ttf */,
+				A3E3DA1C2A40197200D088E1 /* Manrope-Medium.ttf */,
+				A3E3DA1E2A40197300D088E1 /* Manrope-Regular.ttf */,
+				A3E3DA1A2A40197200D088E1 /* Manrope-SemiBold.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,7 +201,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3E3DA212A40197300D088E1 /* Manrope-SemiBold.ttf in Resources */,
 				A3D4400A2A3D4F8D0061493B /* Preview Assets.xcassets in Resources */,
+				A3E3DA202A40197300D088E1 /* Manrope-ExtraBold.ttf in Resources */,
+				A3E3DA232A40197300D088E1 /* Manrope-Medium.ttf in Resources */,
+				A3E3DA1F2A40197300D088E1 /* Manrope-Light.ttf in Resources */,
+				A3E3DA252A40197300D088E1 /* Manrope-Regular.ttf in Resources */,
+				A3E3DA242A40197300D088E1 /* Manrope-ExtraLight.ttf in Resources */,
+				A3E3DA222A40197300D088E1 /* Manrope-Bold.ttf in Resources */,
 				A3D440072A3D4F8D0061493B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,9 +222,13 @@
 			files = (
 				A3D440182A3D50130061493B /* DataModel.swift in Sources */,
 				A3D440142A3D4FCC0061493B /* Api Services.swift in Sources */,
+				A378F73D2A4144BB00D510D4 /* History.swift in Sources */,
 				A3D440162A3D4FF30061493B /* DetailView.swift in Sources */,
+				A3E3DA292A402B8B00D088E1 /* Saved.swift in Sources */,
 				A3D440052A3D4F880061493B /* ContentView.swift in Sources */,
 				A3D440032A3D4F880061493B /* RumahkuApp.swift in Sources */,
+				A378F73F2A4145F000D510D4 /* Profile.swift in Sources */,
+				A3E3DA2B2A405EEE00D088E1 /* Search.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -305,6 +359,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Rumahku/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Rumahku/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -333,6 +388,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Rumahku/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Rumahku/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -20,5 +20,7 @@ struct Rumah: Codable, Identifiable {
     let kecamatan: String
     let kota: String
     let description: String
+    let saved: Bool
+    let recentview: Bool
     
     }
