@@ -9,17 +9,44 @@ import SwiftUI
 struct DetailView: View {
     let rumah: Rumah
     
+    @State private var shouldSaved = true
+    
     var body: some View {
         //        ZStack(alignment: .topTrailing){
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading, spacing: 20) {
                 
-                URLImage(urlString: rumah.thumbnail)
-                //                .resizable()
-                    .scaledToFill()
-                    .frame(width: UIScreen.main.bounds.width - 40,  height: 350)
-                    .clipped()
-                    .cornerRadius(20)
+//                URLImage(urlString: rumah.thumbnail)
+//                //                .resizable()
+//                    .scaledToFill()
+//                    .frame(width: UIScreen.main.bounds.width - 40,  height: 350)
+//                    .clipped()
+//                    .cornerRadius(20)
+                
+                ZStack(alignment: .topTrailing){
+                    URLImage(urlString: rumah.thumbnail)
+                        .scaledToFill()
+                        .frame(width: UIScreen.main.bounds.width - 40,  height: 350)
+                        .clipped()
+                        .cornerRadius(12)
+                        .aspectRatio(contentMode: .fill)
+                    
+                    if shouldSaved {
+                        Image(systemName: "heart.fill")
+                            .foregroundColor(.red)
+                            .font(.system(size: 32))
+                            .padding(.trailing, 10)
+                            .padding(.top, 10)
+                    } else {
+                        Text("Icon not available")
+                    }
+                    
+//                    Image(systemName: "heart.fill")
+//                        .foregroundColor(.red)
+//                        .font(.system(size: 32))
+//                        .padding(.trailing, 10)
+//                        .padding(.top, 10)
+                }
                 
                 VStack(alignment: .leading, spacing: 2){
                     Text(rumah.title)
@@ -44,6 +71,7 @@ struct DetailView: View {
                             .foregroundColor(Color.gray)
                             .font(.system(size: 16))
                     }
+                    
                 }.padding(.bottom, 1)
                 
                 HStack(spacing: 16){

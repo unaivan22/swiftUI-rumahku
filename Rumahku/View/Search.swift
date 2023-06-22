@@ -6,7 +6,8 @@ struct SearchDetail: View {
     var body: some View {
         NavigationView {
             SearchFinal()
-        }
+        }.accentColor(.black)
+            .padding(.horizontal, 12)
     }
 }
 
@@ -29,15 +30,18 @@ struct SearchFinal: View {
                 isSearching = true
                 viewModel.fetchRumahs()
             })
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .frame(height: 48)
-           .padding(EdgeInsets(top: 6, leading: 6, bottom: 6, trailing: 6))
+//            .textFieldStyle(RoundedBorderTextFieldStyle())
            .cornerRadius(5)
            .padding(.horizontal,12)
+           .frame(width: .infinity, height: nil)
+           .padding(.all, 5)
+//           .textFieldStyle(.roundedBorder)
+           .font(Font.system(size: 24, design: .default))
+           .multilineTextAlignment(.leading)
             
             if isSearching && filteredRumahs.isEmpty {
                 Text("House not found")
-                    .foregroundColor(.gray) 
+                    .foregroundColor(.gray)
                     .padding()
             } else {
                 List(filteredRumahs) { rumah in

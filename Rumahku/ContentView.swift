@@ -130,12 +130,12 @@ struct MainContent : View {
                     
                     VStack(alignment: .leading, spacing: 6){
                         Text(rumah.title)
-                            .font(.system(size: 24))
+                            .font(.custom("Manrope-Bold", size: 24))
                             .foregroundColor(.black)
                             .bold()
                             .multilineTextAlignment(.leading)
                         Text("Rp \(rumah.price)")
-                            .font(.system(size: 20))
+                            .font(.custom("Manrope-Light", size: 20))
                             .foregroundColor(.secondary)
                             .multilineTextAlignment(.leading)
                         

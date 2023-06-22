@@ -18,13 +18,15 @@ struct ProfileDetail: View {
                             //Profile photo
                             Image("una")
                                 .resizable()
-                                .frame(width: 50.0, height: 50.0)
+                                .frame(width: 60.0, height: 60.0)
                                 .clipShape(Circle())
                             
                             //Nama dan Status
                             VStack(alignment:.leading){
-                                Text("Unaivan").font(.headline)
-                                Text("Interface Engineer").font(.caption)
+                                Text("Unaivan")
+                                    .font(.custom("Manrope-Medium", size: 20))
+                                Text("Prototyper")
+                                    .font(.custom("Manrope-Regular", size: 14))
                             }
                             
                             
@@ -33,6 +35,7 @@ struct ProfileDetail: View {
                 }
                 .padding(.top,5)
                 .padding(.bottom,5)
+                
                 
                 //navigation pesan berbintang
                 Section(header: Text("Setting")){
@@ -134,7 +137,7 @@ struct ProfileDetail: View {
                     
                 }
             }
-            .navigationBarTitle("Setting")
+            .navigationBarTitle("Profile")
         }
     }
 }
